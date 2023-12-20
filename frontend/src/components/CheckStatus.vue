@@ -1,18 +1,18 @@
 <template>
   <div class="registration-status-container">
-    <h2 class="registration-status-title">Check Registration Status</h2>
+    <h2 class="registration-status-title">Cek Status Registrasi</h2>
     <form @submit.prevent="checkStatus" class="registration-form">
       <div class="form-group">
-        <label for="email" class="form-label">Email:</label>
+        <label for="email" class="form-label">Email : </label><br/>
         <input type="email" id="email" v-model="email" required class="form-input" />
       </div>
       <button type="submit" class="check-status-button">
-        Check Status
+        Cek Status
       </button>
     </form>
 
-    <div v-if="status !== null" class="status-result">
-      <h3 class="status-title">Registration Status:</h3>
+    <div class="status-result">
+      <h3 class="status-title">Status Registrasi:</h3>
       <p class="status-message">{{ status }}</p>
     </div>
   </div>
@@ -49,14 +49,14 @@ export default {
             if (userDocument) {
               this.status = userDocument.status;
             } else {
-              console.error("Error: Email not found in the API response.");
+              console.error("Error: Email not found.");
             }
           } else {
-            console.error("Error: No documents found in the API response.");
+            console.error("Error");
           }
         } else {
           console.error(
-            "Failed to fetch status. Status code:",
+            "Failed to fetch",
             response.status
           );
         }
@@ -72,15 +72,14 @@ export default {
 .registration-status-container {
   max-width: 400px;
   margin: 8rem auto;
-  padding: 1.5rem;
-  background-color: #fbd38d;
+  padding: 3rem;
+  background-color: #F0F8FF;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .registration-status-title {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-weight: bold;
   color: #347aeb;
 }
@@ -105,12 +104,13 @@ export default {
   border: 1px solid #a0aec0;
   border-radius: 0.25rem;
   outline: none;
+  margin-bottom: 1rem;
 }
 
 .check-status-button {
-  background-color: #38a169;
+  background-color: #008000;
   color: #fff;
-  padding: 0.75rem;
+  padding: 1rem;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -128,11 +128,12 @@ export default {
 .status-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: #805ad5;
+  color: #347aeb;
 }
 
 .status-message {
   margin-top: 0.5rem;
-  color: #6b7280;
+  color: #000000;
+  font-weight: bold;
 }
 </style>

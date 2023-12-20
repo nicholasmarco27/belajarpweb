@@ -1,22 +1,22 @@
 <template>
   <div class="registration-form-container">
-    <h2 class="form-title">Registration Form</h2>
+    <h2 class="form-title">Form Registrasi</h2>
     <form @submit.prevent="submitForm" class="form">
       <div class="form-group">
-        <label for="nama" class="form-label">Name:</label>
-        <input type="text" id="nama" v-model="formData.nama" required class="form-input" />
+        <label for="nama" class="form-label">Nama:</label>
+        <input type="text" id="nama" v-model="Data.nama" required class="form-input" />
       </div>
       <div class="form-group">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" id="email" v-model="formData.email" required class="form-input" />
+        <input type="email" id="email" v-model="Data.email" required class="form-input" />
       </div>
       <div class="form-group">
-        <label for="asal_sekolah" class="form-label">School:</label>
-        <input type="text" id="asal_sekolah" v-model="formData.asal_sekolah" required class="form-input" />
+        <label for="asal_sekolah" class="form-label">Asal Sekolah:</label>
+        <input type="text" id="asal_sekolah" v-model="Data.asal_sekolah" required class="form-input" />
       </div>
       <div class="form-group">
-        <label for="tanggal_pendaftaran" class="form-label">Registration Date:</label>
-        <input type="date" id="tanggal_pendaftaran" v-model="formData.tanggal_pendaftaran" required class="form-input" />
+        <label for="tanggal_pendaftaran" class="form-label">Tanggal Registrasi:</label>
+        <input type="date" id="tanggal_pendaftaran" v-model="Data.tanggal_pendaftaran" required class="form-input" />
       </div>
       <button type="submit" class="submit-button">
         Register
@@ -31,7 +31,7 @@
 export default {
   data() {
     return {
-      formData: {
+      Data: {
         nama: "",
         email: "",
         asal_sekolah: "",
@@ -49,7 +49,7 @@ export default {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(this.formData),
+          body: JSON.stringify(this.Data),
         });
 
         const responseData = await response.json();
@@ -57,7 +57,7 @@ export default {
         console.log("Registration Data Successfully Submitted:", responseData);
 
         // Reset form after submission
-        this.formData = {
+        this.Data = {
           nama: "",
           email: "",
           asal_sekolah: "",
@@ -76,8 +76,8 @@ export default {
 .registration-form-container {
   max-width: 400px;
   margin: 4rem auto;
-  padding: 1.5rem;
-  background-color: #f0f4f8;
+  padding: 2rem;
+  background-color: #FFF8DC;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -87,6 +87,7 @@ export default {
   text-align: center;
   margin-bottom: 1rem;
   color: #2b6cb0;
+  font-weight: bold;
 }
 
 .form {
@@ -112,7 +113,7 @@ export default {
 }
 
 .submit-button {
-  background-color: #2b6cb0;
+  background-color: #008000;
   color: #fff;
   padding: 0.75rem;
   border: none;
