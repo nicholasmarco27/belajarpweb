@@ -16,8 +16,8 @@ const Registration = {
       {
         name: "email",
         type: "text",
-        required: true,
         unique: true,
+        required: true,
       },
       {
         name: "asal_sekolah",
